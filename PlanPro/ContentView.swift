@@ -16,7 +16,6 @@ struct ContentView: View {
                     .ignoresSafeArea()
                
                 VStack (spacing: 100) {
-                    
                     Text("PlanPro")
                         .font(.largeTitle)
                         .foregroundColor(Color.white)
