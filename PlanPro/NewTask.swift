@@ -40,7 +40,7 @@ struct NewTask: View {
         ZStack {
             Color(red: 232.0/255.0, green: 197.0/255.0, blue: 202.0/255.0)
                 .ignoresSafeArea()
-
+            
             VStack {
                 Text("Create New Task")
                     .font(.largeTitle)
