@@ -9,21 +9,21 @@ import SwiftUI
 
 struct Tasks: Identifiable {
     let title: String
-    let date: String
+    let date: Date
     let notes: String
     let id = UUID()
     var showTask : String{
-        title + " " + date + " " + notes
+        title + " " + notes
     }
 }
 
 
 
 struct TaskList: View {
-    
-    @State var task = [Tasks(title: "Finish assignment", date: "6/26", notes: "math homework pages 34-35 odds only")
-
-    ]
+    @Binding var task : [Tasks]
+//    @State var task = [Tasks(title: "Finish assignment", date: "6/26", notes: "math homework pages 34-35 odds only")
+//
+//    ]
     
     var body: some View {
         ZStack {
@@ -33,13 +33,20 @@ struct TaskList: View {
                 Text("Tasks")
                     .font(.largeTitle)
                     .foregroundColor(Color.white)
+                HStack {
+                    Table(task) {
+                        TableColumn("Title", value: \.title )
+//                        TableColumn("Notes", value: \.notes)
+                        
+                   }
+                    
+                    
+                }
                 
-                Table(task) {
-                    TableColumn("Title", value: \.title)
-               }
                 NavigationLink(destination: Calendar()) {
                     Text("See Calender")
                 }
+                .frame(width: nil)
                 .foregroundColor(.white)
                 .buttonStyle(.borderedProminent)
                 .tint(Color(red: 211.0/255.0, green: 173.0/255.0, blue: 181.0/255.0))
@@ -51,5 +58,5 @@ struct TaskList: View {
 
 
 #Preview {
-    TaskList()
+    TaskList(task: .constant([Tasks(title: "", date: Date(), notes: "")]))
 }

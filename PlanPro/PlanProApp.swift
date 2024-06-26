@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct PlanProApp: App {
+   
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(task: .constant([Tasks(title: "", date: Date(), notes: "")]))
         }
     }
 }

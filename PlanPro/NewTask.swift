@@ -7,10 +7,11 @@
 
 import SwiftUI
 
+
 struct NewTask: View {
-    @State public var title : String = ""
-    @State public var date = Date()
-    @State public var notes : String = ""
+    @State private var title : String = ""
+    @State private var date = Date()
+    @State private var notes : String = ""
     //@State private var time : String = ""
 //    public struct CustomTextFieldStyle : TextFieldStyle {
 //            public func _body(configuration: TextField<Self._Label>) -> some View {
@@ -36,6 +37,8 @@ struct NewTask: View {
 //                    .background()
 //            }
 //        }
+    @State var task : [Tasks]
+   
     var body: some View {
         ZStack {
             Color(red: 232.0/255.0, green: 197.0/255.0, blue: 202.0/255.0)
@@ -55,25 +58,29 @@ struct NewTask: View {
                 TextField("Notes", text: $notes)
                     .frame(width: 350.0, height: 25.0)
                     .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color.white/*@END_MENU_TOKEN@*/)
-                
-                NavigationLink(destination: TaskList()) {
-                    Text("Create")
+                Button("Save Task") {
+                    task.append(Tasks(title: title, date: date, notes: notes))
+                }
+                NavigationLink(destination: TaskList(task: $task)) {
+                    Text("Go to Task List")
+                    
                 }
                 .foregroundColor(.white)
                 .buttonStyle(.borderedProminent)
                 .tint(Color(red: 211.0/255.0, green: 173.0/255.0, blue: 181.0/255.0))
                     }
-                //TextField("Date", text: $date)
+            
             
 
 
             }
+      
         }
         
     }
 
 
 
-#Preview {
-    NewTask()
-}
+//#Preview {
+//    NewTask(task: task)
+//}
