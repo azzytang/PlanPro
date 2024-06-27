@@ -48,7 +48,7 @@ struct NewTask: View {
                 Text("Create New Task")
                     .font(.largeTitle)
                     .foregroundColor(Color.white)
-    
+                
                 TextField("Title", text: $title)
                     .frame(width: 350.0, height: 25.0)
                     .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color.white/*@END_MENU_TOKEN@*/)
@@ -58,29 +58,51 @@ struct NewTask: View {
                 TextField("Notes", text: $notes)
                     .frame(width: 350.0, height: 25.0)
                     .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color.white/*@END_MENU_TOKEN@*/)
+            }
+            
+            HStack {
                 Button("Save Task") {
-                    task.append(Tasks(title: title, date: date, notes: notes))
+                    if task[0].title == "" {
+                        task = [Tasks(title: title, date: date, notes: notes)]
+                    } else {
+                        task.append(Tasks(title: title, date: date, notes: notes))
+                    }
+                    
                 }
+                .foregroundColor(.white)
+                .buttonStyle(.borderedProminent)
+                .tint(Color(red: 206.0/255.0, green: 185.0/255.0, blue: 190.0/255.0))
+                .opacity(0.8)
+                
+                
                 NavigationLink(destination: TaskList(task: $task)) {
                     Text("Go to Task List")
                     
                 }
                 .foregroundColor(.white)
                 .buttonStyle(.borderedProminent)
-                .tint(Color(red: 211.0/255.0, green: 173.0/255.0, blue: 181.0/255.0))
-                    }
+                
             
-            
-
-
+                
+                NavigationLink(destination: ContentView(task: $task)) {
+                    Text("Back")
+                }
+                .foregroundColor(.white)
+                .buttonStyle(.borderedProminent)
+              
+                
+               
+                
             }
-      
+            .padding(.top, 500.0)
         }
-        
+        }
+       
+       
     }
 
 
 
-//#Preview {
-//    NewTask(task: task)
-//}
+#Preview {
+    NewTask(task: [Tasks(title: "", date: Date(), notes: "")])
+}

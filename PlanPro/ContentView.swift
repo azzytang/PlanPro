@@ -25,7 +25,7 @@ struct ContentView: View {
                         .foregroundColor(Color.white)
                         
                     VStack (spacing: 30) {
-                        NavigationLink(destination: NewTask( task: [Tasks(title: "", date: Date(), notes: "")])) {
+                        NavigationLink(destination: NewTask( task: task)) {
                             Text("Create Task")
                         }
                         .foregroundColor(.white)
@@ -40,7 +40,7 @@ struct ContentView: View {
                         .buttonStyle(.borderedProminent)
                         .tint(Color(red: 211.0/255.0, green: 173.0/255.0, blue: 181.0/255.0))
                         
-                        NavigationLink(destination: Calendar()) {
+                        NavigationLink(destination: CalendarView()) {
                             Text("View Calendar")
                         }
                         .foregroundColor(.white)
