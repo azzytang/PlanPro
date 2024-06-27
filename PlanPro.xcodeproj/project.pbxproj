@@ -14,6 +14,7 @@
 		09222D6D2C2B58A5006BDB55 /* TaskList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09222D6C2C2B58A5006BDB55 /* TaskList.swift */; };
 		09222D712C2B58E6006BDB55 /* NewTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09222D702C2B58E6006BDB55 /* NewTask.swift */; };
 		09222D8D2C2DC2C5006BDB55 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09222D8C2C2DC2C5006BDB55 /* CalendarView.swift */; };
+		0A3F48F22C2DD4B20065AA4F /* ElegantCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 0A3F48F12C2DD4B20065AA4F /* ElegantCalendar */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A3F48F22C2DD4B20065AA4F /* ElegantCalendar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +94,9 @@
 			dependencies = (
 			);
 			name = PlanPro;
+			packageProductDependencies = (
+				0A3F48F12C2DD4B20065AA4F /* ElegantCalendar */,
+			);
 			productName = PlanPro;
 			productReference = 09222D392C29F51E006BDB55 /* PlanPro.app */;
 			productType = "com.apple.product-type.application";
@@ -120,6 +125,10 @@
 				Base,
 			);
 			mainGroup = 09222D302C29F51E006BDB55;
+			packageReferences = (
+				0A3F48F02C2DD4B20065AA4F /* XCRemoteSwiftPackageReference "ElegantCalendar" */,
+				0A3F48F32C2DD7C20065AA4F /* XCRemoteSwiftPackageReference "ElegantTimeline-SwiftUI" */,
+			);
 			productRefGroup = 09222D3A2C29F51E006BDB55 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -356,6 +365,33 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0A3F48F02C2DD4B20065AA4F /* XCRemoteSwiftPackageReference "ElegantCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ThasianX/ElegantCalendar";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.3.2;
+			};
+		};
+		0A3F48F32C2DD7C20065AA4F /* XCRemoteSwiftPackageReference "ElegantTimeline-SwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ThasianX/ElegantTimeline-SwiftUI";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0A3F48F12C2DD4B20065AA4F /* ElegantCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0A3F48F02C2DD4B20065AA4F /* XCRemoteSwiftPackageReference "ElegantCalendar" */;
+			productName = ElegantCalendar;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 09222D312C29F51E006BDB55 /* Project object */;
 }

@@ -72,7 +72,6 @@ struct NewTask: View {
                 .foregroundColor(.white)
                 .buttonStyle(.borderedProminent)
                 .tint(Color(red: 206.0/255.0, green: 185.0/255.0, blue: 190.0/255.0))
-                .opacity(0.8)
                 
                 
                 NavigationLink(destination: TaskList(task: $task)) {
@@ -80,7 +79,7 @@ struct NewTask: View {
                     
                 }
                 .foregroundColor(.white)
-                .buttonStyle(.borderedProminent)
+                .buttonStyle(.borderedProminent).tint(Color(red: 206.0/255.0, green: 185.0/255.0, blue: 190.0/255.0))
                 
             
                 
@@ -89,12 +88,14 @@ struct NewTask: View {
                 }
                 .foregroundColor(.white)
                 .buttonStyle(.borderedProminent)
+                .tint(Color(red: 206.0/255.0, green: 185.0/255.0, blue: 190.0/255.0))
               
                 
                
                 
             }
             .padding(.top, 500.0)
+            .buttonStyle(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=Button Style@*/DefaultButtonStyle()/*@END_MENU_TOKEN@*/)
         }
         }
        

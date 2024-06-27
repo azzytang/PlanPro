@@ -21,26 +21,39 @@ struct Tasks: Identifiable {
 
 struct TaskList: View {
     @Binding var task : [Tasks]
-//    @State var task = [Tasks(title: "Finish assignment", date: "6/26", notes: "math homework pages 34-35 odds only")
-//
-//    ]
+    private let dateFormatter: DateFormatter = {
+               let formatter = DateFormatter()
+               formatter.dateStyle = .medium
+               formatter.timeStyle = .short
+               return formatter
+           }()
     @State private var multiSelection = Set<UUID>()
+//    init() {
+//        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(.accentColor)]
+//    }
     var body: some View {
         
         ZStack {
-//            List(0..<task.count) { index in
-//                Text(self.task[index].title)
-//            }
             Color(red: 232.0/255.0, green: 197.0/255.0, blue: 202.0/255.0)
                 .ignoresSafeArea()
+            
+    
             VStack {
-                
-//
+                Text("Tasks")
+                    .font(.largeTitle)
+                    .fontWeight(.heavy)
+                    .foregroundColor(.white)
+                    .padding()
                 NavigationView {
                             List(task, selection: $multiSelection) { task in
-                                Text(task.title)
+                                Text(task.title + " | " + dateFormatter.string(from: task.date))
                             }
-                            .navigationTitle("Tasks")
+                            .background(Color(red: 232.0/255.0, green: 197.0/255.0, blue: 202.0/255.0))
+
+                            .scrollContentBackground(.hidden)
+                            .navigationTitle("")
+                            
+                            
                             .toolbar { EditButton() }
                     
                 }
