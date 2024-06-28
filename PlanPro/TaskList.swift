@@ -60,7 +60,7 @@ struct TaskList: View {
                
                 
                 HStack {
-                    NavigationLink(destination: CalendarView()) {
+                    NavigationLink(destination: CalendarView(task: $task)) {
                         Text("See Calender")
                     }
                     .frame(width: nil)

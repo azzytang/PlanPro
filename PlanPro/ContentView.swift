@@ -22,7 +22,8 @@ struct ContentView: View {
                     
                     Text("PlanPro")
                         .font(.largeTitle)
-                        .foregroundColor(Color.white)
+                        .fontWeight(.heavy)
+                        .foregroundColor(.white)
                         
                     VStack (spacing: 30) {
                         NavigationLink(destination: NewTask( task: task)) {
@@ -40,7 +41,7 @@ struct ContentView: View {
                         .buttonStyle(.borderedProminent)
                         .tint(Color(red: 211.0/255.0, green: 173.0/255.0, blue: 181.0/255.0))
                         
-                        NavigationLink(destination: CalendarView()) {
+                        NavigationLink(destination: CalendarView(task: $task)) {
                             Text("View Calendar")
                         }
                         .foregroundColor(.white)
@@ -53,6 +54,7 @@ struct ContentView: View {
                 }
                 
             }
+            .navigationBarBackButtonHidden(true)
            
         }
        

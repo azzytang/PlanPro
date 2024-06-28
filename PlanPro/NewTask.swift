@@ -44,10 +44,11 @@ struct NewTask: View {
             Color(red: 232.0/255.0, green: 197.0/255.0, blue: 202.0/255.0)
                 .ignoresSafeArea()
             
-            VStack {
+            VStack (spacing: 30){
                 Text("Create New Task")
                     .font(.largeTitle)
-                    .foregroundColor(Color.white)
+                    .fontWeight(.heavy)
+                    .foregroundColor(.white)
                 
                 TextField("Title", text: $title)
                     .frame(width: 350.0, height: 25.0)
@@ -71,7 +72,7 @@ struct NewTask: View {
                 }
                 .foregroundColor(.white)
                 .buttonStyle(.borderedProminent)
-                .tint(Color(red: 206.0/255.0, green: 185.0/255.0, blue: 190.0/255.0))
+                .tint(Color(red: 211.0/255.0, green: 173.0/255.0, blue: 181.0/255.0))
                 
                 
                 NavigationLink(destination: TaskList(task: $task)) {
@@ -79,7 +80,7 @@ struct NewTask: View {
                     
                 }
                 .foregroundColor(.white)
-                .buttonStyle(.borderedProminent).tint(Color(red: 206.0/255.0, green: 185.0/255.0, blue: 190.0/255.0))
+                .buttonStyle(.borderedProminent).tint(Color(red: 211.0/255.0, green: 173.0/255.0, blue: 181.0/255.0))
                 
             
                 
@@ -88,8 +89,7 @@ struct NewTask: View {
                 }
                 .foregroundColor(.white)
                 .buttonStyle(.borderedProminent)
-                .tint(Color(red: 206.0/255.0, green: 185.0/255.0, blue: 190.0/255.0))
-              
+                .tint(Color(red: 211.0/255.0, green: 173.0/255.0, blue: 181.0/255.0))
                 
                
                 
@@ -97,7 +97,9 @@ struct NewTask: View {
             .padding(.top, 500.0)
             .buttonStyle(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=Button Style@*/DefaultButtonStyle()/*@END_MENU_TOKEN@*/)
         }
+        .navigationBarBackButtonHidden(true)
         }
+    
        
        
     }
